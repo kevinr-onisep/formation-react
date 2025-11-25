@@ -1,33 +1,30 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Button from "./components/ui/Button/Button";
 
 function App() {
-  let counter: number = 0;
+  const [counter, SetCounter] = useState(-1);
 
-  function upgradeCounter() {
-    counter++;
+  useEffect(() => {
     console.log("Counter : " + counter);
-  }
+  }, [counter])
 
   return (
     <div>
+      <p style={{ marginBottom: '1rem' }}>
+        Counter : {counter}
+      </p>
       <Button
         color="red"
         type="button"
-        children={"Counter"}
-        onButtonClick={() => upgradeCounter()}
+        children={"-1"}
+        onButtonClick={() => { SetCounter(counter - 1) }}
       />
       <Button
         color="green"
-        type="reset"
-        children={"Reset"}
-        onButtonClick={() => upgradeCounter()}
-      />
-      <Button
-        color="blue"
-        type="submit"
-        children={"Submit"}
-        onButtonClick={() => upgradeCounter()}
+        type="button"
+        children={"+1"}
+        onButtonClick={() => { SetCounter(counter + 1) }}
       />
     </div>
   );
