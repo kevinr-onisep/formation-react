@@ -5,33 +5,20 @@ interface IButtonProps {
   color?: string;
   type: "reset" | "submit" | "button";
   children: React.ReactNode | string | Array<React.ReactElement | string>;
+  onButtonClick: () => void;
 }
 
 const Button: React.FC<IButtonProps> = ({
   type = "button",
   children,
   color,
+  onButtonClick,
 }) => {
-  const handleClick = () => {
-    switch (type) {
-      case "reset":
-        onReset();
-        break;
-      case "submit":
-        onSubmit();
-        break;
-      case "button":
-        onPressButton();
-        break;
-      default:
-        break;
-    }
-  };
-
   return (
     <button
       className={style.Button}
-      onClick={handleClick}
+      onClick={onButtonClick}
+      type={type}
       style={{ backgroundColor: color }}
     >
       {children}
@@ -40,15 +27,3 @@ const Button: React.FC<IButtonProps> = ({
 };
 
 export default Button;
-
-function onReset() {
-  console.log("Reset");
-}
-
-function onSubmit() {
-  console.log("Submitted");
-}
-
-function onPressButton() {
-  console.log("Pressed");
-}

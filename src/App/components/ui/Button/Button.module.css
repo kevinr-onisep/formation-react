@@ -1,16 +1,15 @@
 .Button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 8px;
-    border: none;
-    font-weight: 900;
-    text-decoration: underline;
-    color: white;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 900;
+  text-decoration: underline;
+  color: white;
+  box-shadow: 25px 25px 25px grey;
 }
 
 .Button:hover {
-    text-decoration: none;
-    background-color: darkslateblue;
-    box-shadow: 0px 25px 25px grey;
-    transition-duration: .5s;
+  box-shadow: 15px 15px 25px grey;
+  border: 1px solid grey;
 }
