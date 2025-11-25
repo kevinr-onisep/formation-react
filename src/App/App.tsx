@@ -3,9 +3,9 @@ import Button from './components/ui/Button/Button';
 
 function App() {
   return <div>
-    <Button children={"Bouton"}></Button>
-    <Button children={"Reset"} type='reset' />
-    <Button children={"Submit"} type='submit' />
+    <Button children={"Bouton"} color='tomato'></Button>
+    <Button children={"Reset"} color='green' type='reset' />
+    <Button children={"Submit"} color='blue' type='submit' />
   </div>
 }
 
