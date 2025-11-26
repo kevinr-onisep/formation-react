@@ -4,7 +4,7 @@ import FlexH1stGrow from "./components/layout/FlexH1stGrow/FlexH1stGrow";
 import FlexV3rdGrow from "./components/layout/FlexV3rdGrow/FlexV3rdGrow";
 import Footer from "./components/ui/Footer/Footer";
 import Header from "./components/ui/Header/Header";
-import MemeSVGViewer from "./components/ui/MemeSVGViewer/MemeSVGViewer";
+import { emptyMeme, MemeSVGViewer } from "orsys-tjs-meme";
 import Navbar from "./components/ui/Navbar/Navbar";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Header />
         <Navbar />
         <FlexH1stGrow>
-          <MemeSVGViewer />
+          <MemeSVGViewer meme={emptyMeme} image={undefined} basePath="" />
           <MemeForm />
         </FlexH1stGrow>
         <Footer />

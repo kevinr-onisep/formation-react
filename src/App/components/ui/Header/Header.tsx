@@ -4,7 +4,9 @@ interface IHeaderProps  {}
 
 const Header :React.FC<IHeaderProps>= ({}) => {
   return (
-    <div className={styles.Header} data-testid="Header">Header</div>
+    <div className={styles.Header} data-testid="Header">
+      <p>Header</p>
+    </div>
   )
 }
 
