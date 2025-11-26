@@ -1,31 +1,24 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import Button from "./components/ui/Button/Button";
+import MemeForm from "./components/functionnal/MemeForm/MemeForm";
+import FlexH1stGrow from "./components/layout/FlexH1stGrow/FlexH1stGrow";
+import FlexV3rdGrow from "./components/layout/FlexV3rdGrow/FlexV3rdGrow";
+import Footer from "./components/ui/Footer/Footer";
+import Header from "./components/ui/Header/Header";
+import MemeSVGViewer from "./components/ui/MemeSVGViewer/MemeSVGViewer";
+import Navbar from "./components/ui/Navbar/Navbar";
 
 function App() {
-  const [counter, SetCounter] = useState(-1);
-
-  useEffect(() => {
-    console.log("Counter : " + counter);
-  }, [counter])
-
   return (
-    <div>
-      <p style={{ marginBottom: '1rem' }}>
-        Counter : {counter}
-      </p>
-      <Button
-        color="red"
-        type="button"
-        children={"-1"}
-        onButtonClick={() => { SetCounter(counter - 1) }}
-      />
-      <Button
-        color="green"
-        type="button"
-        children={"+1"}
-        onButtonClick={() => { SetCounter(counter + 1) }}
-      />
+    <div className="App">
+      <FlexV3rdGrow>
+        <Header />
+        <Navbar />
+        <FlexH1stGrow>
+          <MemeSVGViewer />
+          <MemeForm />
+        </FlexH1stGrow>
+        <Footer />
+      </FlexV3rdGrow>
     </div>
   );
 }

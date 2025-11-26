@@ -12,8 +12,7 @@
       "withStory": true,
       "withLazy": true,
       "customTemplates": {
-        "component": "grc_templates/functionBasic/TemplateName.tsx",
-        "test": "grc_templates/README.md"
+        "component": "grc_templates/functionState/TemplateName.tsx"
       }
     },
     "ui": {
@@ -23,8 +22,18 @@
       "withStory": true,
       "withLazy": true,
       "customTemplates": {
-        "component": "grc_templates/functionBasic/TemplateName.tsx",
-        "test": "grc_templates/README.md"
+        "component": "./grc_templates/ui/TemplateName.tsx"
+      }
+    },
+    "layout": {
+      "path": "src/App/components/layout",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "./grc_templates/layout/TemplateName.tsx",
+        "style": "grc_templates/layout/TemplateName.module.css"
       }
     }
   }
