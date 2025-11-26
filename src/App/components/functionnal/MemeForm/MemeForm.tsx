@@ -10,8 +10,7 @@ interface IMemeFormProps {
 interface IMemeFormState {}
 
 const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
-  const [state, setState] = useState<MemeInterface>(meme);
-
+  
   useEffect(() => {
     //montage // update
 
