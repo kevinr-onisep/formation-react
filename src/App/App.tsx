@@ -1,4 +1,5 @@
 import "./App.css";
+import "./stores/store";
 import MemeForm from "./components/functionnal/MemeForm/MemeForm";
 import FlexH1stGrow from "./components/layout/FlexH1stGrow/FlexH1stGrow";
 import FlexV3rdGrow from "./components/layout/FlexV3rdGrow/FlexV3rdGrow";

@@ -46,7 +46,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
         <hr />
         <label htmlFor="image">Image</label>
         <br />
-        <select
+        <Form.Select
           name="imageId"
           id="imageId"
           value={meme.imageId}
@@ -58,11 +58,11 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
               {image.name}
             </option>
           ))}
-        </select>
+        </Form.Select>
         <hr />
-        <label htmlFor="text">Texte</label>
+        <Form.Label htmlFor="text">Texte</Form.Label>
         <br />
-        <input
+        <Form.Control
           name="text"
           id="text"
           type="text"
@@ -95,10 +95,10 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
         <hr />
         <br />
         <h2>Decorations</h2>
-        <label htmlFor="color" style={{ display: "inline" }}>
+        <Form.Label htmlFor="color" style={{ display: "inline" }}>
           color :
-        </label>
-        <input name="color" id="color" type="color" onChange={onTextChange} />
+        </Form.Label>
+        <Form.Control name="color" id="color" type="color" onChange={onTextChange} />
         <br />
         <label htmlFor="fontSize" style={{ display: "inline" }}>
           font-size :
