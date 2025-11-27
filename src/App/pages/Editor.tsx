@@ -12,13 +12,14 @@ const Editor = () => {
   const params = useParams();
   const memes = useSelector((s: RootState) => s.ressources.memes);
   const navigation = useNavigate();
+
   useEffect(() => {
     if (undefined !== params.id) {
       const memeFound = memes.find((m) => m.id === Number(params.id));
       if (undefined !== memeFound) {
         d(update(memeFound));
       } else {
-        navigation("/edit");
+        navigation("/editor");
       }
     } else {
       d(clear());
