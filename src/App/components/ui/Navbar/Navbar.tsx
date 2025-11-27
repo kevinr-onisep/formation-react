@@ -6,7 +6,12 @@ import "../../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 const Navbar = ({}) => {
   return (
-    <NavBar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+    <NavBar
+      expand="lg"
+      className="bg-body-tertiary"
+      bg="dark"
+      data-bs-theme="dark"
+    >
       <Container>
         <NavBar.Brand href="#home">React-Bootstrap</NavBar.Brand>
         <NavBar.Toggle aria-controls="basic-navbar-nav" />

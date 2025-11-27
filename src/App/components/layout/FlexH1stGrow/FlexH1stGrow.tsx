@@ -5,7 +5,7 @@ interface FlexH1stGrowProps {
   children: Array<string | React.ReactElement> | string | React.ReactElement;
 }
 
-const FlexH1stGrow: React.FC<FlexH1stGrowProps> = ({ children="" }) => {
+const FlexH1stGrow: React.FC<FlexH1stGrowProps> = ({ children = "" }) => {
   return (
     <div className={styles.FlexH1stGrow} data-testid="FlexH1stGrow">
       {children}

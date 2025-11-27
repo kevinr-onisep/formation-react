@@ -5,7 +5,12 @@ import FlexV3rdGrow from "./components/layout/FlexV3rdGrow/FlexV3rdGrow";
 import Header from "./components/ui/Header/Header";
 import Navbar from "./components/ui/Navbar/Navbar";
 import Footer from "./components/ui/Footer/Footer";
-import { emptyMeme, MemeSVGViewer, type ImageInterface, type MemeInterface } from "orsys-tjs-meme";
+import {
+  emptyMeme,
+  MemeSVGViewer,
+  type ImageInterface,
+  type MemeInterface,
+} from "orsys-tjs-meme";
 import { useEffect, useState } from "react";
 import { REST_ADR, REST_RESOURCES } from "./constantes/config";
 
@@ -15,9 +20,9 @@ function App() {
 
   useEffect(() => {
     fetch(`${REST_ADR}${REST_RESOURCES.images}`)
-      .then(r => r.json())
-      .then(arr => setImages(arr));
-  }, [])
+      .then((r) => r.json())
+      .then((arr) => setImages(arr));
+  }, []);
 
   return (
     <div className="App">
@@ -25,8 +30,18 @@ function App() {
         <Header />
         <Navbar />
         <FlexH1stGrow>
-          <MemeSVGViewer meme={current} image={images.find((img) => img.id === current.imageId)} basePath="" />
-          <MemeForm meme={current} onMemeChange={meme => { setCurrent(meme); }} images={images} />
+          <MemeSVGViewer
+            meme={current}
+            image={images.find((img) => img.id === current.imageId)}
+            basePath=""
+          />
+          <MemeForm
+            meme={current}
+            onMemeChange={(meme) => {
+              setCurrent(meme);
+            }}
+            images={images}
+          />
         </FlexH1stGrow>
         <Footer />
       </FlexV3rdGrow>
