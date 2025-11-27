@@ -1,0 +1,7 @@
+.FlexH1stGrow {
+    display: flex;
+}
+
+.FlexH1stGrow > *:nth-child(1) {
+    flex-grow: 1;
+}

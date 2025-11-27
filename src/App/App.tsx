@@ -1,31 +1,50 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import Button from "./components/ui/Button/Button";
+import MemeForm from "./components/functionnal/MemeForm/MemeForm";
+import FlexH1stGrow from "./components/layout/FlexH1stGrow/FlexH1stGrow";
+import FlexV3rdGrow from "./components/layout/FlexV3rdGrow/FlexV3rdGrow";
+import Header from "./components/ui/Header/Header";
+import Navbar from "./components/ui/Navbar/Navbar";
+import Footer from "./components/ui/Footer/Footer";
+import {
+  emptyMeme,
+  MemeSVGViewer,
+  type ImageInterface,
+  type MemeInterface,
+} from "orsys-tjs-meme";
+import { useEffect, useState } from "react";
+import { REST_ADR, REST_RESOURCES } from "./constantes/config";
 
 function App() {
-  const [counter, SetCounter] = useState(-1);
+  const [current, setCurrent] = useState<MemeInterface>(emptyMeme);
+  const [images, setImages] = useState<Array<ImageInterface>>([]);
 
   useEffect(() => {
-    console.log("Counter : " + counter);
-  }, [counter])
+    fetch(`${REST_ADR}${REST_RESOURCES.images}`)
+      .then((r) => r.json())
+      .then((arr) => setImages(arr));
+  }, []);
 
   return (
-    <div>
-      <p style={{ marginBottom: '1rem' }}>
-        Counter : {counter}
-      </p>
-      <Button
-        color="red"
-        type="button"
-        children={"-1"}
-        onButtonClick={() => { SetCounter(counter - 1) }}
-      />
-      <Button
-        color="green"
-        type="button"
-        children={"+1"}
-        onButtonClick={() => { SetCounter(counter + 1) }}
-      />
+    <div className="App">
+      <FlexV3rdGrow>
+        <Header />
+        <Navbar />
+        <FlexH1stGrow>
+          <MemeSVGViewer
+            meme={current}
+            image={images.find((img) => img.id === current.imageId)}
+            basePath=""
+          />
+          <MemeForm
+            meme={current}
+            onMemeChange={(meme) => {
+              setCurrent(meme);
+            }}
+            images={images}
+          />
+        </FlexH1stGrow>
+        <Footer />
+      </FlexV3rdGrow>
     </div>
   );
 }
