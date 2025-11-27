@@ -18,30 +18,18 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
     };
   }, []);
 
-  const onNumberChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const s = { ...meme };
-    s[evt.target.name] = parseInt(evt.target.value);
-    onMemeChange({ ...meme, [evt.target.name]: evt.target.value });
+  const onNumberChange = (
+    evt: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    onMemeChange({ ...meme, [evt.target.name]: parseInt(evt.target.value) });
   };
 
   const onTextChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const s = { ...meme };
-    s[evt.target.name] = evt.target.value;
     onMemeChange({ ...meme, [evt.target.name]: evt.target.value });
   };
 
   const onCheckboxChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const s = { ...meme };
-    s[evt.target.name] = evt.target.checked;
     onMemeChange({ ...meme, [evt.target.name]: evt.target.checked });
-  };
-
-  const onSelectChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
-    const s = { ...meme };
-    s[evt.target.name] = evt.target.value;
-    onMemeChange({ ...meme, [evt.target.name]: evt.target.value });
-
-    console.log(meme);
   };
 
   return (
@@ -58,9 +46,17 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
         <hr />
         <label htmlFor="image">Image</label>
         <br />
-        <select name="image" id="image">
-          {images.map(image => (
-            <option value={image.id} key={image.id}>{image.name}</option>
+        <select
+          name="imageId"
+          id="imageId"
+          value={meme.imageId}
+          onChange={onNumberChange}
+        >
+          <option value={-1}>No image</option>
+          {images.map((image) => (
+            <option value={image.id} key={image.id}>
+              {image.name}
+            </option>
           ))}
         </select>
         <hr />
