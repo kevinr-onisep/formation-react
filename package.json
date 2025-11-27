@@ -10,10 +10,12 @@
     "preview": "vite preview",
     "gen": "npx generate-react-cli c",
     "gen:ui": "npx generate-react-cli c --type=ui",
-    "gen:layout": "npx generate-react-cli c --type=layout"
+    "gen:layout": "npx generate-react-cli c --type=layout",
+    "json": "json-server -p 5614 db.json"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "json-server": "0.17.4",
     "orsys-tjs-meme": "^1.0.3",
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",

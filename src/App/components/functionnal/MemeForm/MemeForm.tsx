@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./MemeForm.module.css";
-import type { MemeInterface } from "orsys-tjs-meme";
+import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
+import { Form } from "react-bootstrap";
 
 interface IMemeFormProps {
   meme: MemeInterface;
+  images: Array<ImageInterface>;
   onMemeChange: (meme: MemeInterface) => void;
 }
 
-interface IMemeFormState {}
-
-const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
-  
+const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
   useEffect(() => {
     //montage // update
 
@@ -37,22 +36,32 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange }) => {
     onMemeChange({ ...meme, [evt.target.name]: evt.target.checked });
   };
 
+  const onSelectChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
+    const s = { ...meme };
+    s[evt.target.name] = evt.target.value;
+    onMemeChange({ ...meme, [evt.target.name]: evt.target.value });
+
+    console.log(meme);
+  };
+
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
       <form>
-        <label htmlFor="titre">
-          <h1>Titre</h1>
-        </label>
+        <Form.Label htmlFor="titre">Titre</Form.Label>
         <br />
-        <input name="titre" id="titre" onChange={onTextChange} />
+        <Form.Control
+          type="text"
+          name="titre"
+          id="titre"
+          onChange={onTextChange}
+        />
         <hr />
-        <label htmlFor="image">Image</label>
+        <label htmlFor="imageId">Image</label>
         <br />
-        <select name="image" id="image">
-          <option>futurama1.jpg</option>
-          <option>futurama2.png</option>
-          <option>futurama3.png</option>
-          <option>gwenadu.jpg</option>
+        <select name="imageId" id="imageId" onChange={onSelectChange}>
+          {images.map(image => (
+            <option value={image.id} key={image.id}>{image.name}</option>
+          ))}
         </select>
         <hr />
         <label htmlFor="text">Texte</label>
