@@ -1,10 +1,8 @@
-import React from "react";
-import styles from "./Navbar.module.css";
 import { Container, Nav, Navbar as NavBar } from "react-bootstrap";
 
 import "../../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-const Navbar = ({}) => {
+const Navbar = () => {
   return (
     <NavBar
       expand="lg"

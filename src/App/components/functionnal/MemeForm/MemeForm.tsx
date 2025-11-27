@@ -98,7 +98,12 @@ const MemeForm: React.FC<IMemeFormProps> = ({ meme, onMemeChange, images }) => {
         <Form.Label htmlFor="color" style={{ display: "inline" }}>
           color :
         </Form.Label>
-        <Form.Control name="color" id="color" type="color" onChange={onTextChange} />
+        <Form.Control
+          name="color"
+          id="color"
+          type="color"
+          onChange={onTextChange}
+        />
         <br />
         <label htmlFor="fontSize" style={{ display: "inline" }}>
           font-size :
